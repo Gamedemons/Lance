@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="981.0" prefWidth="1662.0" style="-fx-border-width: 5px; -fx-border-color: #101010; -fx-border-style: solid; -fx-background-color: #BFBEEE;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gamedemons.lance.HelloController">
+   <children>
+      <Button fx:id="preview" layoutX="270.0" layoutY="109.0" mnemonicParsing="false" onAction="#previewText" prefHeight="69.0" prefWidth="227.0" text="Preview" />
+      <Button fx:id="selectPath" layoutX="41.0" layoutY="109.0" mnemonicParsing="false" onAction="#openFilePicker" prefHeight="69.0" prefWidth="227.0" text="Open Folder" />
+      <TextArea fx:id="previewArea" layoutX="510.0" layoutY="109.0" prefHeight="719.0" prefWidth="1120.0" promptText="Preview" wrapText="true">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextArea>
+      <Button fx:id="output" layoutX="40.0" layoutY="849.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="457.0" text="Output" />
+      <TextField fx:id="outputPathField" editable="false" layoutX="510.0" layoutY="849.0" prefHeight="69.0" prefWidth="989.0" promptText="Output Path" />
+      <Button fx:id="outputLocation" layoutX="1513.0" layoutY="849.0" mnemonicParsing="false" onAction="#openOutputPath" prefHeight="69.0" prefWidth="118.0" text="Change Location" textAlignment="CENTER" wrapText="true" />
+      <RadioButton fx:id="singleOutput" layoutX="41.0" layoutY="761.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="227.0" text="Single File">
+         <toggleGroup>
+            <ToggleGroup fx:id="File" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="multipleOutput" layoutX="270.0" layoutY="761.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="227.0" text="Multiple Files" toggleGroup="$File" />
+      <CheckBox fx:id="removeCheck" layoutX="39.0" layoutY="205.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="136.0" text="Remove" />
+      <TextField fx:id="removeBox" layoutX="188.0" layoutY="205.0" prefHeight="69.0" prefWidth="309.0" promptText="Text to be removed" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="26.0" prefHeight="69.0" prefWidth="1590.0" text="Lance - Light Novel Utility" textAlignment="CENTER">
+         <font>
+            <Font name="MS Gothic" size="62.0" />
+         </font>
+         <effect>
+            <DropShadow height="37.79" radius="22.855" spread="0.36" width="55.63">
+               <color>
+                  <Color red="0.808890700340271" green="0.9868420958518982" blue="0.7264254093170166" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Label>
+      <CheckBox fx:id="blankCheck" layoutX="42.0" layoutY="692.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="457.0" text="Remove Blank Lines" />
+      <CheckBox fx:id="replaceCheck" layoutX="39.0" layoutY="297.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="136.0" text="Replace" />
+      <TextField fx:id="replaceBox1" layoutX="188.0" layoutY="297.0" prefHeight="69.0" prefWidth="309.0" promptText="To be replaced" />
+      <TextField fx:id="replaceBox2" layoutX="188.0" layoutY="389.0" prefHeight="69.0" prefWidth="309.0" promptText="To be replaced with" />
+      <Pane layoutX="40.0" layoutY="469.0" prefHeight="226.0" prefWidth="457.0">
+         <children>
+            <CheckBox fx:id="renameCheckbox" mnemonicParsing="false" onAction="#renameCheck" prefHeight="69.0" prefWidth="136.0" text="Renamer" />
+            <RadioButton fx:id="numericalRadio" disable="true" layoutX="155.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="148.0" text="Numerical" />
+            <RadioButton fx:id="titleRadio" disable="true" layoutX="310.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="148.0" text="Title" />
+            <TextField fx:id="regexBox" disable="true" layoutY="129.0" prefHeight="44.0" prefWidth="457.0" promptText="After regex" />
+            <TextField fx:id="stepBox" disable="true" layoutX="1.0" layoutY="78.0" prefHeight="44.0" prefWidth="457.0" promptText="Starting : Ending : Step" />
+            <TextField fx:id="prefixBox" disable="true" layoutX="2.0" layoutY="181.0" prefHeight="44.0" prefWidth="227.0" promptText="Prefix" />
+            <TextField fx:id="suffixBox" disable="true" layoutX="229.0" layoutY="181.0" prefHeight="44.0" prefWidth="227.0" promptText="Suffix" />
+         </children>
+      </Pane>
+      <Label fx:id="opromptLabel" layoutX="42.0" layoutY="828.0" prefHeight="20.0" prefWidth="457.0" textFill="BLUE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="help" layoutX="1499.0" layoutY="36.0" mnemonicParsing="false" onAction="#arrp" prefHeight="50.0" prefWidth="60.0" text="Help" />
+      <Button fx:id="reset" layoutX="1570.0" layoutY="36.0" mnemonicParsing="false" onAction="#resetUI" prefHeight="50.0" prefWidth="60.0" text="Reset" />
+      <ProgressBar fx:id="loader" layoutX="41.0" layoutY="946.0" prefHeight="21.0" prefWidth="1590.0" progress="0.0">
+         <effect>
+            <InnerShadow height="67.59" radius="16.3975" width="0.0">
+               <color>
+                  <Color green="0.8098591566085815" blue="1.0" />
+               </color>
+            </InnerShadow>
+         </effect>
+      </ProgressBar>
+   </children>
+   <effect>
+      <InnerShadow height="176.3" radius="79.7775" width="144.81">
+         <color>
+            <Color red="0.7763158082962036" green="0.08625730872154236" blue="0.08625730872154236" />
+         </color>
+      </InnerShadow>
+   </effect>
+</Pane>

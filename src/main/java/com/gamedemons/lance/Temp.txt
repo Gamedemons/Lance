@@ -1,0 +1,131 @@
+/*        try{
+            File files = new File("D:\\New folder\\Chapter 1-51\\");
+            Scanner file = new Scanner(new File("D:\\New folder\\Chapter 1-51\\00001.txt"));
+
+            PrintWriter writer = new PrintWriter("D:\\New folder\\new.txt");
+
+            while (file.hasNext()) {
+                String line = file.nextLine();
+                if (!line.isEmpty()) {
+                    writer.write(line);
+                    writer.write("\n");
+                }
+            }
+
+            file.close();
+            writer.close();
+        }catch (Exception e){
+            System.out.println("");
+        }
+*/
+
+
+
+
+                    //PrintWriter writer = new PrintWriter("D:\\New folder\\new.txt");
+//                while (currentFile.hasNext()) {
+//                    String line = currentFile.nextLine();
+//                    if (!line.isEmpty()) {
+//                        writer.write(line);
+//                        writer.write("\n");
+//                    }
+//                }
+
+//writer.close();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        Thread thread = new Thread("A1"){
+//            @Override
+//            public void run() {
+//                try {
+//                    for (double i = 0; i <= 1; i = i + 0.005) {
+//                        loader.setProgress(i);
+//                        thread.wait(500);
+//                    }
+//                }catch (Exception e){
+//
+//                }
+//            }
+//        };
+//        thread.start();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        Thread thread = null;
+//        Thread finalThread = thread;
+//        thread = new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                try {
+//                    for (double i = 0; i <= 1; i = i + 0.005) {
+//                        loader.setProgress(i);
+//                        finalThread.wait(500);
+//                    }
+//                }catch (Exception e){
+//
+//                }
+//            }
+//        });
+//        thread.start();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                try {
+//                    for (double i = 0; i <= 1; i = i + 0.01) {
+        i+=0.1;
+                        loader.setProgress(i);
+//                        this.wait(500);
+//                    }
+//                } catch (Exception e) {
+//                    System.out.println(e.getMessage());
+//                }
+//            }
+//        }).start();
