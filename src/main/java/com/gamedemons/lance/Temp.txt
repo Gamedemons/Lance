@@ -129,3 +129,43 @@
 //                }
 //            }
 //        }).start();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public void editor(){
+        if(blankCheck.isSelected()){
+            for(String text : chapters){
+                String textBuilder = "";
+                if(bc1.isSelected()) {
+                    String[] line = text.split("[\r\n]+");
+                    List<String> textParts = Arrays.asList(line);
+
+                    for (String i : textParts) {
+                        textBuilder = textBuilder + i + "\n";
+                    }
+                }else if(bc2.isSelected()){
+                    for(String i : chapters){
+                        text
+                    }
+                }
+                editedChapters.add(textBuilder);
+            }
+        }
+    }
+
+

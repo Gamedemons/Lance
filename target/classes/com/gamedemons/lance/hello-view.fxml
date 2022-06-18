@@ -15,17 +15,17 @@
             <Font size="15.0" />
          </font>
       </TextArea>
-      <Button fx:id="output" layoutX="40.0" layoutY="849.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="457.0" text="Output" />
-      <TextField fx:id="outputPathField" editable="false" layoutX="510.0" layoutY="849.0" prefHeight="69.0" prefWidth="989.0" promptText="Output Path" />
-      <Button fx:id="outputLocation" layoutX="1513.0" layoutY="849.0" mnemonicParsing="false" onAction="#openOutputPath" prefHeight="69.0" prefWidth="118.0" text="Change Location" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="output" layoutX="40.0" layoutY="849.0" mnemonicParsing="false" onAction="#writeFiles" prefHeight="69.0" prefWidth="457.0" text="Output" />
+      <TextField fx:id="outputPathField" editable="false" layoutX="513.0" layoutY="849.0" prefHeight="69.0" prefWidth="903.0" promptText="Output Path" />
+      <Button fx:id="outputLocation" layoutX="1425.0" layoutY="849.0" mnemonicParsing="false" onAction="#openOutputPath" prefHeight="69.0" prefWidth="206.0" text="Change Location" textAlignment="CENTER" wrapText="true" />
       <RadioButton fx:id="singleOutput" layoutX="41.0" layoutY="761.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="227.0" text="Single File">
          <toggleGroup>
             <ToggleGroup fx:id="File" />
          </toggleGroup>
       </RadioButton>
       <RadioButton fx:id="multipleOutput" layoutX="270.0" layoutY="761.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="227.0" text="Multiple Files" toggleGroup="$File" />
-      <CheckBox fx:id="removeCheck" layoutX="39.0" layoutY="205.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="136.0" text="Remove" />
-      <TextField fx:id="removeBox" layoutX="188.0" layoutY="205.0" prefHeight="69.0" prefWidth="309.0" promptText="Text to be removed" />
+      <CheckBox fx:id="removeCheck" layoutX="39.0" layoutY="205.0" mnemonicParsing="false" onAction="#removeCheck" prefHeight="69.0" prefWidth="136.0" text="Remove" />
+      <TextField fx:id="removeBox" disable="true" layoutX="188.0" layoutY="205.0" prefHeight="69.0" prefWidth="309.0" promptText="Text to be removed" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="26.0" prefHeight="69.0" prefWidth="1590.0" text="Lance - Light Novel Utility" textAlignment="CENTER">
          <font>
             <Font name="MS Gothic" size="62.0" />
@@ -38,17 +38,15 @@
             </DropShadow>
          </effect>
       </Label>
-      <CheckBox fx:id="blankCheck" layoutX="42.0" layoutY="692.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="457.0" text="Remove Blank Lines" />
-      <CheckBox fx:id="replaceCheck" layoutX="39.0" layoutY="297.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="136.0" text="Replace" />
-      <TextField fx:id="replaceBox1" layoutX="188.0" layoutY="297.0" prefHeight="69.0" prefWidth="309.0" promptText="To be replaced" />
-      <TextField fx:id="replaceBox2" layoutX="188.0" layoutY="389.0" prefHeight="69.0" prefWidth="309.0" promptText="To be replaced with" />
+      <CheckBox fx:id="blankCheck" layoutX="42.0" layoutY="692.0" mnemonicParsing="false" onAction="#blankCheck" prefHeight="69.0" prefWidth="174.0" text="Remove Blank Lines" />
+      <CheckBox fx:id="replaceCheck" layoutX="39.0" layoutY="297.0" mnemonicParsing="false" onAction="#replaceCheck" prefHeight="69.0" prefWidth="136.0" text="Replace" />
+      <TextField fx:id="replaceBox1" disable="true" layoutX="188.0" layoutY="297.0" prefHeight="69.0" prefWidth="309.0" promptText="To be replaced" />
+      <TextField fx:id="replaceBox2" disable="true" layoutX="188.0" layoutY="389.0" prefHeight="69.0" prefWidth="309.0" promptText="To be replaced with" />
       <Pane layoutX="40.0" layoutY="469.0" prefHeight="226.0" prefWidth="457.0">
          <children>
+            <TextField fx:id="stepBox" disable="true" layoutX="1.0" layoutY="129.0" prefHeight="44.0" prefWidth="457.0" promptText="Starting : Step : Placement" />
             <CheckBox fx:id="renameCheckbox" mnemonicParsing="false" onAction="#renameCheck" prefHeight="69.0" prefWidth="136.0" text="Renamer" />
-            <RadioButton fx:id="numericalRadio" disable="true" layoutX="155.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="148.0" text="Numerical" />
-            <RadioButton fx:id="titleRadio" disable="true" layoutX="310.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="148.0" text="Title" />
-            <TextField fx:id="regexBox" disable="true" layoutY="129.0" prefHeight="44.0" prefWidth="457.0" promptText="After regex" />
-            <TextField fx:id="stepBox" disable="true" layoutX="1.0" layoutY="78.0" prefHeight="44.0" prefWidth="457.0" promptText="Starting : Ending : Step" />
+            <TextField fx:id="regexBox" disable="true" layoutX="2.0" layoutY="76.0" prefHeight="44.0" prefWidth="457.0" promptText="After regex" />
             <TextField fx:id="prefixBox" disable="true" layoutX="2.0" layoutY="181.0" prefHeight="44.0" prefWidth="227.0" promptText="Prefix" />
             <TextField fx:id="suffixBox" disable="true" layoutX="229.0" layoutY="181.0" prefHeight="44.0" prefWidth="227.0" promptText="Suffix" />
          </children>
@@ -58,9 +56,9 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="help" layoutX="1499.0" layoutY="36.0" mnemonicParsing="false" onAction="#setLoader" prefHeight="50.0" prefWidth="60.0" text="Help" />
+      <Button fx:id="help" layoutX="1499.0" layoutY="36.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="60.0" text="Help" />
       <Button fx:id="reset" layoutX="1570.0" layoutY="36.0" mnemonicParsing="false" onAction="#resetUI" prefHeight="50.0" prefWidth="60.0" text="Reset" />
-      <ProgressBar fx:id="loader" layoutX="41.0" layoutY="946.0" prefHeight="21.0" prefWidth="1590.0" progress="0.0">
+      <ProgressBar fx:id="loader" layoutX="41.0" layoutY="946.0" prefHeight="21.0" prefWidth="1374.0" progress="0.0">
          <effect>
             <InnerShadow height="67.59" radius="16.3975" width="0.0">
                <color>
@@ -69,6 +67,17 @@
             </InnerShadow>
          </effect>
       </ProgressBar>
+      <RadioButton fx:id="bc1" disable="true" layoutX="234.0" layoutY="695.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="130.0" text="All">
+         <toggleGroup>
+            <ToggleGroup fx:id="BlankCheck" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="bc2" disable="true" layoutX="366.0" layoutY="695.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="130.0" text="Extra" toggleGroup="$BlankCheck" />
+      <Label fx:id="messageBar" layoutX="42.0" layoutY="918.0" prefHeight="21.0" prefWidth="1374.0" />
+      <Label fx:id="timeLabel" layoutX="1425.0" layoutY="943.0" prefHeight="21.0" prefWidth="206.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
    </children>
    <effect>
       <InnerShadow height="176.3" radius="79.7775" width="144.81">
