@@ -87,6 +87,17 @@ public class HelloController{
     @FXML
     private Label timeLabel;
 
+    @FXML
+    private TextArea originalNameBox;
+
+    @FXML
+    private TextArea newNameBox;
+
+
+
+
+
+
 
     String folderPath = "";
     String filename = "";
@@ -124,7 +135,7 @@ public class HelloController{
                         Thread.sleep(100);
                     }
                 }catch (Exception e){
-                    System.out.println(e.getMessage());
+                    messageBar.setText("Error : " + e.getMessage());
                 }finally {
                     loader.setProgress(1);
                 }
@@ -169,15 +180,19 @@ public class HelloController{
         loader.setProgress(0);
         messageBar.setText("");
         timeLabel.setText("");
+        originalNameBox.setText("");
+        newNameBox.setText("");
     }
 
     public void openFilePicker() {
         try {
             DirectoryChooser dChooser = new DirectoryChooser();
             File file = dChooser.showDialog(null);
-            folderPath = file.getAbsolutePath();
+            if(file != null){
+                folderPath = file.getAbsolutePath();
+            }
         }catch (Exception e){
-            System.out.println(e.getMessage());
+            messageBar.setText("Error : " + e.getMessage());
         }
     }
 
@@ -200,7 +215,7 @@ public class HelloController{
             File[] files = new File(folderPath).listFiles();
             if (files != null) {
                 for(File file : files){
-                    if(file.isFile()){
+                    if(file.isFile() && file.getName().endsWith(".txt")){
                         numberOfFiles += 1;
                     }
                 }
@@ -210,7 +225,7 @@ public class HelloController{
 
             //Read chapters, file counter, filenameList
             for (File file : files) {
-                if (file.isFile()) {
+                if (file.isFile() && file.getName().endsWith(".txt")) {
                     filename = file.getAbsolutePath();
                     filenamesList.add(file.getName().substring(0,file.getName().length()-4));
                     currentOpenFile += 1;
@@ -221,34 +236,39 @@ public class HelloController{
             //Editing and displaying the edited chapters
             int editorCheck = editor();
             if(editorCheck == -1){
-                System.out.println(editorCheck);
+                messageBar.setText("Error : " + "Problem in editor.");
             }
             for(String chapter : editedChapters){
                 previewArea.appendText(chapter + "\n\n\n\n");
             }
             timeLabel.setText("Time consumed : " + ((System.currentTimeMillis()-timeConsumed)) + " ms");
         }catch (Exception e){
-            System.out.println(e.getMessage());
+            messageBar.setText("Error : " + e.getMessage());
         }
     }
 
     public int editor(){
+        editedChapters.clear();
+        for (String i : chapters){
+            editedChapters.add(i);
+        }
+
         if(removeCheck.isSelected()){
-//            int currentIndex = 0;
-//            for(String text : editedChapters){
-//                String[] words = text.split(" ");
-//                List<String> wordParts = Arrays.asList(words);
-//                String textBuilder ="";
-//                for (String i: textParts){
-//                    if(bc1.isSelected()){
-//                        textBuilder = textBuilder + i + "\n";
-//                    }else if(bc2.isSelected()){
-//                        textBuilder = textBuilder + i + "\n\n";
-//                    }
-//
-//                }
-//                editedChapters.add(textBuilder);
-//            }
+            List<String> removeEdit = new ArrayList<>();
+            for(String text : editedChapters){
+                String reText = text.replaceAll(removeBox.getText(), "");
+                removeEdit.add(reText);
+            }
+            editedChapters= removeEdit;
+        }
+
+        if(replaceCheck.isSelected()){
+            List<String> replaceEdit = new ArrayList<>();
+            for(String text : editedChapters){
+                String reText = text.replaceAll(replaceBox1.getText(), replaceBox2.getText());
+                replaceEdit.add(reText);
+            }
+            editedChapters= replaceEdit;
         }
 
         if(renameCheckbox.isSelected()){
@@ -324,13 +344,11 @@ public class HelloController{
             } catch (Exception e) {
                 messageBar.setText("Exception in renamer : Check the values");
             }
-
-
-
         }
 
         if(blankCheck.isSelected()){
-            for(String text : chapters){
+            List<String> blankEdit = new ArrayList<>();
+            for(String text : editedChapters){
                 String[] line = text.split("[\r\n]+");
                 List<String> textParts = Arrays.asList(line);
                 String textBuilder ="";
@@ -340,19 +358,17 @@ public class HelloController{
                     }else if(bc2.isSelected()){
                         textBuilder = textBuilder + i + "\n\n";
                     }
-
                 }
-                editedChapters.add(textBuilder);
+                blankEdit.add(textBuilder);
             }
+            editedChapters = blankEdit;
         }
-
-        if(!removeCheck.isSelected() && !replaceCheck.isSelected() && !blankCheck.isSelected()){
-            editedChapters.clear();
-            for (String i : chapters){
-                editedChapters.add(i);
-            }
-        }
-
+//        if(!removeCheck.isSelected() && !replaceCheck.isSelected() && !blankCheck.isSelected()){
+//            editedChapters.clear();
+//            for (String i : chapters){
+//                editedChapters.add(i);
+//            }
+//        }
         return 0;
     }
 
@@ -410,15 +426,18 @@ public class HelloController{
         try {
             DirectoryChooser dChooser = new DirectoryChooser();
             File file = dChooser.showDialog(null);
-            outputPath = file.getAbsolutePath();
+//            if(file != null){
+                outputPath = file.getAbsolutePath();
+//            }
             outputPathField.setText(outputPath);
         }catch (Exception e){
-            System.out.println(e.getMessage());
+            messageBar.setText("Error : " + e.getMessage());
         }
     }
 
     public void writeFiles(){
         previewText();
+        filenameViewer();
         try {
             messageBar.setText("");
             if(!singleOutput.isSelected() && !multipleOutput.isSelected()){
@@ -456,8 +475,27 @@ public class HelloController{
                 }
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            messageBar.setText("Error : " + e.getMessage());
         }
+    }
+
+    public void filenameViewer(){
+        originalNameBox.setText("");
+        newNameBox.setText("");
+        String originalName = "Original Name\n\n";
+        String newName = "New Name\n\n";
+        for (String i : filenamesList){
+            originalName = originalName + i + ".txt               ----------------------------------------------------------" + "\n\n";
+        }
+        for (String i : renamedFile){
+            newName = newName + i + ".txt"  + "\n\n";
+        }
+        originalNameBox.setText(originalName);
+        newNameBox.setText(newName);
+    }
+
+    public void scrollSync(){
+        newNameBox.scrollTopProperty().bindBidirectional(originalNameBox.scrollTopProperty());
     }
 
     public void renameFile(File toBeRenamed, String new_name) {
@@ -473,13 +511,13 @@ public class HelloController{
         }
     }
 
-    public void fileList(){
-        for(String i : filenamesList){
-            System.out.println(i);
-        }
-        for(String i : renamedFile){
-            System.out.println(i);
-        }
-    }
+//    public void fileList(){
+//        for(String i : filenamesList){
+//            System.out.println(i);
+//        }
+//        for(String i : renamedFile){
+//            System.out.println(i);
+//        }
+//    }
 
 }

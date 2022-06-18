@@ -10,11 +10,6 @@
    <children>
       <Button fx:id="preview" layoutX="270.0" layoutY="109.0" mnemonicParsing="false" onAction="#previewText" prefHeight="69.0" prefWidth="227.0" text="Preview" />
       <Button fx:id="selectPath" layoutX="41.0" layoutY="109.0" mnemonicParsing="false" onAction="#openFilePicker" prefHeight="69.0" prefWidth="227.0" text="Open Folder" />
-      <TextArea fx:id="previewArea" layoutX="510.0" layoutY="109.0" prefHeight="719.0" prefWidth="1120.0" promptText="Preview" wrapText="true">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </TextArea>
       <Button fx:id="output" layoutX="40.0" layoutY="849.0" mnemonicParsing="false" onAction="#writeFiles" prefHeight="69.0" prefWidth="457.0" text="Output" />
       <TextField fx:id="outputPathField" editable="false" layoutX="513.0" layoutY="849.0" prefHeight="69.0" prefWidth="903.0" promptText="Output Path" />
       <Button fx:id="outputLocation" layoutX="1425.0" layoutY="849.0" mnemonicParsing="false" onAction="#openOutputPath" prefHeight="69.0" prefWidth="206.0" text="Change Location" textAlignment="CENTER" wrapText="true" />
@@ -72,12 +67,40 @@
             <ToggleGroup fx:id="BlankCheck" />
          </toggleGroup></RadioButton>
       <RadioButton fx:id="bc2" disable="true" layoutX="366.0" layoutY="695.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="130.0" text="Extra" toggleGroup="$BlankCheck" />
-      <Label fx:id="messageBar" layoutX="42.0" layoutY="918.0" prefHeight="21.0" prefWidth="1374.0" />
+      <Label fx:id="messageBar" layoutX="42.0" layoutY="918.0" prefHeight="21.0" prefWidth="1374.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
       <Label fx:id="timeLabel" layoutX="1425.0" layoutY="943.0" prefHeight="21.0" prefWidth="206.0">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
+      <TabPane layoutX="510.0" layoutY="109.0" prefHeight="717.0" prefWidth="1122.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Text Preview">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="previewArea" editable="false" layoutY="3.0" prefHeight="679.0" prefWidth="1120.0" promptText="Preview" wrapText="true">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextArea>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="File Name Preview">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="originalNameBox" editable="false" onMouseMoved="#scrollSync" prefHeight="682.0" prefWidth="568.0" text="Original Name" />
+                        <TextArea fx:id="newNameBox" editable="false" layoutX="570.0" prefHeight="682.0" prefWidth="552.0" text="New Name" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
    </children>
    <effect>
       <InnerShadow height="176.3" radius="79.7775" width="144.81">
