@@ -1,19 +1,16 @@
 package com.gamedemons.lance;
 
 import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 
 public class Help extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("help.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Lance.class.getResource("help.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1179, 745);
         stage.setTitle("Help");
         stage.setResizable(false);
