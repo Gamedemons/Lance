@@ -201,6 +201,9 @@ public class LanceController {
         filenamesList.clear();
         renamedFile.clear();
         try{
+            if(folderPath.equals("")){
+                throw new Exception("No folder selected");
+            }
             timeConsumed = System.currentTimeMillis();
 
             //Counts no of files
@@ -413,9 +416,9 @@ public class LanceController {
         try {
             DirectoryChooser dChooser = new DirectoryChooser();
             File file = dChooser.showDialog(null);
-//            if(file != null){
+            if(file != null){
                 outputPath = file.getAbsolutePath();
-//            }
+            }
             outputPathField.setText(outputPath);
         }catch (Exception e){
             messageBar.setText("Error : " + e.getMessage());
@@ -430,6 +433,9 @@ public class LanceController {
             if(!singleOutput.isSelected() && !multipleOutput.isSelected()){
                 messageBar.setText("Select any one of the output modes.");
             }else{
+                if(outputPath.equals("")){
+                    throw new Exception("No output folder selected");
+                }
                 if(outputPath.isEmpty()){
                     messageBar.setText("Select a destination folder.");
                 }else{
