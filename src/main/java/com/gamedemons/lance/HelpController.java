@@ -3,9 +3,6 @@ package com.gamedemons.lance;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-
 public class HelpController {
 
     @FXML
@@ -48,13 +45,33 @@ public class HelpController {
                 "\t\tThe \"Start\" field specifies the starting number.\n" +
                 "\t\tThe \"Step\" field specifies the step. ie the number to be added to start for the subsequent file names.\n" +
                 "\t\tThe \"Expression\" field specifies the place and format where the numbering is to be placed.\n" +
-                "\t\tThese are all the expressions that are currently available.\n");
+                "\t\tThese are all the expressions that are currently available.\n" +
+                "\t\t\t\"B\"\t\t: start + prefix + currentfilename + suffix\n" +
+                "\t\t\t\"Bs\"\t\t: start + \" \" + prefix + currentfilename + suffix\n" +
+                "\t\t\t\"b\"\t\t: prefix + start + currentfilename + suffix\n" +
+                "\t\t\t\"bs\"\t\t: prefix + start + \" \" + currentfilename + suffix\n" +
+                "\t\t\t\"S\"\t\t: prefix + currentfilename + suffix + start\n" +
+                "\t\t\t\"Ss\"\t\t: prefix + currentfilename + suffix + \" \" +  start\n" +
+                "\t\t\t\"s\"\t\t: prefix + currentfilename + start + suffix\n" +
+                "\t\t\t\"ss\"\t\t: prefix + currentfilename + \" \" +  start + suffix\n" +
+                "\t\t\t\"RB\"\t\t: start + prefix + suffix\n" +
+                "\t\t\t\"RBs\"\t: prefix + \" \" + currentfilename + \" \" +  start + suffix\n" +
+                "\t\t\t\"RS\"\t\t: prefix + suffix + start\n" +
+                "\t\t\t\"RSs\"\t: prefix + suffix + \" \" + start\n" +
+                "\t\t\t\"RM\"\t: prefix + start + suffix\n" +
+                "\t\t\t\"RMs\"\t: prefix + \" \" + start + \" \" + suffix\n" +
+                "\t\tFor eg : if the input was \"1 : 2 : RM\" then the output would be 1.txt, 3.txt, 5.txt and so on.\n" +
+                "\t\tThe \"Prefix Field\" specifies the prefix to be added to the start of the file name.\n" +
+                "\t\tThe \"Suffix Field\" specifies the suffix to be added to the end of the file name.\n\n" +
+                "Remove Blank Lines Option\n" +
+                "\t\"All\" option removes all blank lines from the text.\n" +
+                "\t\"Extra\" option removes all the extra blank line leaving only one blank line between each line\n\n" +
+                "Output Option\nThis option lets you output the modified file to your desired location.\n" +
+                "This can be done by first selecting the output location using the \"Change Location\" button at the bottom right side of the app. \n" +
+                "After that you have to select any one of the two output modes in the app, namely \"Single file\" or \"Multiple Files\".\nChoosing the \"Single file\"" +
+                " option will output all the contents into one file which will be named as \"NameOfFirstFile - NameOfLastFile.txt\"\nChoosing the \"Multiple files\"" +
+                " option which will save each file individually with their newly modified designated names.\n" +
+                "After that all you have to do is click on \"Output\" button on lower left side of app.\n\n\n" +
+                "Additional Info\nYou can check the newly designated names of the files in the filename tab present on top of preview area.");
     }
-
-
-
-
-
-
-
 }

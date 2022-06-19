@@ -16,15 +16,6 @@ import java.util.ArrayList;
 
 public class HelloController{
 
-//    @FXML
-//    private Button selectPath;
-//
-//    @FXML
-//    private  Button help;
-//
-//    @FXML
-//    private Button preview;
-
     @FXML
     private CheckBox removeCheck;
 
@@ -81,9 +72,6 @@ public class HelloController{
 
     @FXML
     private TextField outputPathField;
-
-    @FXML
-    private Button output;
 
     @FXML
     private Label messageBar;
@@ -201,7 +189,7 @@ public class HelloController{
     }
 
     public static String readFileAsString(String fileName)throws Exception {
-        String data = "";
+        String data;
         data = new String(Files.readAllBytes(Paths.get(fileName)));
         return data;
     }
@@ -311,7 +299,7 @@ public class HelloController{
                     if(stepBox.getText().isEmpty() && (place.equals("") || place==null)){
                         renamedFile.add(prefix + currentfilename + suffix);
                     }
-                    if(!stepBox.getText().isEmpty() && !place.equals("") && !(place == null) && start!=null && step!=null){
+                    if(!stepBox.getText().isEmpty() && !place.equals("") && start!=null && step!=null){
                         if(place.equals("B")){
                             renamedFile.add(start + prefix + currentfilename + suffix);
                         }else if(place.equals("Bs")){
@@ -367,12 +355,7 @@ public class HelloController{
             }
             editedChapters = blankEdit;
         }
-//        if(!removeCheck.isSelected() && !replaceCheck.isSelected() && !blankCheck.isSelected()){
-//            editedChapters.clear();
-//            for (String i : chapters){
-//                editedChapters.add(i);
-//            }
-//        }
+
         return 0;
     }
 
@@ -512,18 +495,18 @@ public class HelloController{
         stage.show();
     }
 
-    public void renameFile(File toBeRenamed, String new_name) {
-        //need to be in the same path
-        File fileWithNewName = new File(toBeRenamed.getParent(), new_name);
-        if (fileWithNewName.exists()) {
-            messageBar.setText("File already exists - Conflict.");
-        }
-        // Rename file (or directory)
-        boolean success = toBeRenamed.renameTo(fileWithNewName);
-        if (!success) {
-            messageBar.setText("Error while renaming file.");
-        }
-    }
+//    public void renameFile(File toBeRenamed, String new_name) {
+//        //need to be in the same path
+//        File fileWithNewName = new File(toBeRenamed.getParent(), new_name);
+//        if (fileWithNewName.exists()) {
+//            3Bar.setText("File already exists - Conflict.");
+//        }
+//        // Rename file (or directory)
+//        boolean success = toBeRenamed.renameTo(fileWithNewName);
+//        if (!success) {
+//            messageBar.setText("Error while renaming file.");
+//        }
+//    }
 
 //    public void fileList(){
 //        for(String i : filenamesList){
