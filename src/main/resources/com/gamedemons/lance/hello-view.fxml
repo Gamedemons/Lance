@@ -51,7 +51,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="help" layoutX="1499.0" layoutY="36.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="60.0" text="Help" />
+      <Button fx:id="help" layoutX="1499.0" layoutY="36.0" mnemonicParsing="false" onAction="#helpMenu" prefHeight="50.0" prefWidth="60.0" text="Help" />
       <Button fx:id="reset" layoutX="1570.0" layoutY="36.0" mnemonicParsing="false" onAction="#resetUI" prefHeight="50.0" prefWidth="60.0" text="Reset" />
       <ProgressBar fx:id="loader" layoutX="41.0" layoutY="946.0" prefHeight="21.0" prefWidth="1374.0" progress="0.0">
          <effect>

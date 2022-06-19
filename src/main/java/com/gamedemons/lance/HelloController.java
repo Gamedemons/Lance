@@ -1,6 +1,10 @@
 package com.gamedemons.lance;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.DirectoryChooser;
 import java.io.*;
@@ -496,6 +500,16 @@ public class HelloController{
 
     public void scrollSync(){
         newNameBox.scrollTopProperty().bindBidirectional(originalNameBox.scrollTopProperty());
+    }
+
+    public void helpMenu() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("help.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Help");
+        stage.setResizable(false);
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     public void renameFile(File toBeRenamed, String new_name) {
