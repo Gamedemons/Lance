@@ -3,6 +3,7 @@ package com.gamedemons.lance;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -15,6 +16,9 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class LanceController {
+
+    @FXML
+    private Pane pane;
 
     @FXML
     private CheckBox removeCheck;
@@ -179,7 +183,7 @@ public class LanceController {
     public void openFilePicker() {
         try {
             DirectoryChooser dChooser = new DirectoryChooser();
-            File file = dChooser.showDialog(null);
+            File file = dChooser.showDialog(pane.getScene().getWindow());
             if(file != null){
                 folderPath = file.getAbsolutePath();
             }
@@ -415,7 +419,7 @@ public class LanceController {
     public void openOutputPath() {
         try {
             DirectoryChooser dChooser = new DirectoryChooser();
-            File file = dChooser.showDialog(null);
+            File file = dChooser.showDialog(pane.getScene().getWindow());
             if(file != null){
                 outputPath = file.getAbsolutePath();
             }

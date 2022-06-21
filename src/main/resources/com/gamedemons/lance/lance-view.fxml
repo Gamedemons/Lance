@@ -6,7 +6,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="981.0" prefWidth="1662.0" style="-fx-border-width: 5px; -fx-border-color: #101010; -fx-border-style: solid; -fx-background-color: #BFBEEE;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gamedemons.lance.LanceController">
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="981.0" prefWidth="1662.0" style="-fx-border-width: 5px; -fx-border-color: #101010; -fx-border-style: solid; -fx-background-color: #BFBEEE;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gamedemons.lance.LanceController">
    <children>
       <Button fx:id="preview" layoutX="270.0" layoutY="109.0" mnemonicParsing="false" onAction="#previewText" prefHeight="69.0" prefWidth="227.0" text="Preview" />
       <Button fx:id="selectPath" layoutX="41.0" layoutY="109.0" mnemonicParsing="false" onAction="#openFilePicker" prefHeight="69.0" prefWidth="227.0" text="Open Folder" />
