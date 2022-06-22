@@ -3,6 +3,7 @@ Lance is a software utility which allows you to perform several flexible operati
 This app works well in conjunction with the Lightnovel Crawler. For example you can add prefix or suffix to the file or add custom numbering to the file names.
 
 Lance currently supports the following operations.</br>
+
 1 Remove a word from the file.</br>
 2 Replace words from a file.</br>
 3 Add a prefix or suffix to a filename.</br>
@@ -10,6 +11,29 @@ Lance currently supports the following operations.</br>
 5 Remove blank lines from the file.</br>
 6 Output the modified file in a specified location.</br>
 </br>
+
+- [Lightnovel Crawler]()
+  - Table of contents
+  - [Installation](#installation)
+    - [Standalone Bundle (Windows, Linux)](#standalone-bundle-windows-linux)
+    - [PIP (Windows, Mac, and Linux)](#pip-windows-mac-and-linux)
+    - [Docker](#docker)
+    - [Termux (Android)](#termux-android)
+    - [Chatbots](#chatbots)
+      - [Discord](#discord)
+      - [Telegram](#telegram)
+    - [Heroku Deployment](#heroku-deployment)
+  - [Running from source](#running-from-source)
+  - [Running the Bots](#running-the-bots)
+  - [General Usage](#general-usage)
+    - [Available options](#available-options)
+    - [Example Usage](#example-usage)
+  - [Development](#development)
+    - [Adding new source](#adding-new-source)
+    - [Adding new Bot](#adding-new-bot)
+  - [Supported sources](#supported-sources)
+  - [Rejected sources](#rejected-sources)
+  - [Supported output formats](#supported-output-formats)
 
 Getting Started</br>
 The first thing you'll need to do is select the folder where your text files are present. To do this click on the "Open Folder" button on the upper left side of application and select the folder.</br>
