@@ -11,12 +11,13 @@ Lance currently supports the following operations.<br>
 - Output the modified file in a specified location.
 
 <br>
-Getting Started<br>
+
+##Getting Started<br>
 The first thing you'll need to do is select the folder where your text files are present. To do this click on the "Open Folder" button on the upper left side of application and select the folder.<br>
 The "Preview button lets you preview your text documents with or without changes in the text area on the right.<br>
 <br>
 
-Remove Option<br>
+##Remove Option<br>
 The remove option lets you remove any words from the text files.<br>
 &emsp;for eg : typing "Hello" would remove the word "Hello" from all the files.<br>
 You can also remove multiple words at once using "|" at delimiter.<br>
@@ -24,13 +25,13 @@ You can also remove multiple words at once using "|" at delimiter.<br>
 Note : The "|" delimiter can be escaped by typing "\|".<br>
 <br>
 
-Replace Option<br>
+##Replace Option<br>
 The replace option lets you replace certain words with the words that you type. The word to be removed is to be typed in the first text box and the word to be replaced with is to be entered in the second text box.<br>
 The "|" delimiter can als be used to specify many words at the same time.<br>
 Note : The "|" delimiter can be escaped by typing "\|".<br>
 <br>
 
-Renamer Option<br>
+##Renamer Option<br>
 The renamer option lets you change and adjust the names of the output files. renamer is quite flexible and can be used in many different ways to get the desired name.
 - Regex Field :<br>allows the user to add the chapter title in file name based on custom regex expression<br>
 - Numerical Field :<br>lets you add numbering in the name of the output file. It is quite the flexible option.<br>
@@ -60,12 +61,13 @@ Its syntax is "Start : Step : Expression"<br>
 For eg : if the input was "1 : 2 : RM" then the output would be 1.txt, 3.txt, 5.txt and so on.<br>
 <br>
 
-Remove Blank Lines Option<br>
+
+##Remove Blank Lines Option<br>
  - "All" option removes all blank lines from the text.<br>
  - "Extra" option removes all the extra blank line leaving only one blank line between each line<br>
 <br>
 
-Output Option<br>
+##Output Option<br>
 This option lets you output the modified file to your desired location.<br>
 This can be done by first selecting the output location using the "Change Location" button at the bottom right side of the app.<br>
 After that you have to select any one of the two output modes in the app, namely "Single file" or "Multiple Files".<br>
