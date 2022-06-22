@@ -9,7 +9,7 @@ Lance currently supports the following operations.</br>
 4 Add a numbering pattern to a file name.</br>
 5 Remove blank lines from the file.</br>
 6 Output the modified file in a specified location.</br>
-
+</br>
 
 Getting Started</br>
 The first thing you'll need to do is select the folder where your text files are present. To do this click on the "Open Folder" button on the upper left side of application and select the folder.</br>
