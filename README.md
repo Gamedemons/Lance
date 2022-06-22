@@ -31,7 +31,8 @@ The "|" delimiter can als be used to specify many words at the same time.<br>
 Note : The "|" delimiter can be escaped by typing "\|".<br>
 <br>
 
-## Regex Field :<br>allows the user to add the chapter title in file name based on custom regex expression<br>
+## Regex Field :
+<br>allows the user to add the chapter title in file name based on custom regex expression<br>
 - Numerical Field :<br>lets you add numbering in the name of the output file. It is quite the flexible option.<br>
 Its syntax is "Start : Step : Expression"<br>
   - The "Start" field specifies the starting number.<br>
