@@ -3,6 +3,9 @@ package com.gamedemons.lance;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -88,9 +91,6 @@ public class LanceController {
 
     @FXML
     private TextArea newNameBox;
-
-
-
 
 
 
@@ -362,7 +362,6 @@ public class LanceController {
             }
             editedChapters = blankEdit;
         }
-
         return 0;
     }
 
@@ -517,14 +516,4 @@ public class LanceController {
 //            messageBar.setText("Error while renaming file.");
 //        }
 //    }
-
-//    public void fileList(){
-//        for(String i : filenamesList){
-//            System.out.println(i);
-//        }
-//        for(String i : renamedFile){
-//            System.out.println(i);
-//        }
-//    }
-
 }

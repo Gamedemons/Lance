@@ -1,7 +1,10 @@
 package com.gamedemons.lance;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.TextArea;
+
+import java.awt.*;
+import java.net.URI;
 
 public class HelpController {
 
@@ -73,5 +76,19 @@ public class HelpController {
                 " option which will save each file individually with their newly modified designated names.\n" +
                 "After that all you have to do is click on \"Output\" button on lower left side of app.\n\n\n" +
                 "Additional Info\nYou can check the newly designated names of the files in the filename tab present on top of preview area.");
+    }
+
+    public void lanceLink(){
+        try{
+            Desktop.getDesktop().browse(new URI("https://github.com/Gamedemons/Lance"));
+        }catch (Exception e){
+        }
+    }
+
+    public void lncLink(){
+        try{
+            Desktop.getDesktop().browse(new URI("https://github.com/dipu-bd/lightnovel-crawler"));
+        }catch (Exception e){
+        }
     }
 }
